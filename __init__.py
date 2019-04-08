@@ -29,8 +29,7 @@ def send_async_email(app, msg):
 
 
 def send_message(form, email):
-    msg = Message('Новый подписчик!', recipients=['kfu.anatomy.2018@gmail.com'],
-                  sender='kfu.anatomy.2018@gmail.com')
+    msg = Message('Новый подписчик!', recipients=['kfu.anatomy.2018@gmail.com'], sender='kfu.anatomy.2018@gmail.com')
     msg.html = render_template('email.html', result=form)
     msg.body = 'New subscriber ' + email
     t = Thread(target=send_async_email, args=[app, msg])
